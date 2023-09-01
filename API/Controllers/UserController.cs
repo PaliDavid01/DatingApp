@@ -1,5 +1,6 @@
 ﻿using API.Data;
 using API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,7 +14,7 @@ public class UsersController:BaseApiController
     {
         _context = context;
     }
-
+    
     [HttpGet]
     public async Task<ActionResult<IEnumerable<AppUser>>> GetAll(){
         return await _context.Users.ToListAsync();
