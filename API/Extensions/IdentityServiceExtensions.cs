@@ -1,4 +1,6 @@
 ﻿using System.Text;
+using API.Data;
+using API.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -20,6 +22,7 @@ public static class IdentityServiceExtensions
                     };
                 });
         services.AddAuthorization();
+        services.AddScoped<IUserRepository, UserRepository>();
         return services;
     }
 }

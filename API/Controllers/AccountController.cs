@@ -25,10 +25,10 @@ public class AccountController:BaseApiController
     [HttpPost("register")]
     public async Task<ActionResult<UserDTO>> Register(RegisterDTO registerDTO)
     {
-        if(await UserExist(registerDTO.Username)) 
-        {
-        return BadRequest("User already exists with that username!");
-        }
+        //if(await UserExist(registerDTO.Username)) 
+        //{
+        //return BadRequest("User already exists with that username!");
+        //}
         using var hmac = new HMACSHA512();
         var user = new AppUser{
             UserName = registerDTO.Username,
