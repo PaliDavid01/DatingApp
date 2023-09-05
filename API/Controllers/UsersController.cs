@@ -23,8 +23,9 @@ public class UsersController:BaseApiController
     
     [HttpGet]
     public async Task<ActionResult<IEnumerable<MemberDTO>>> GetUsers(){
-        var usersToReturn = _userRepository.GetMembersAsync();
-        return Ok(usersToReturn);
+        var result = await _userRepository.GetMembersAsync();
+        return Ok(result);
+
     }
     
     [HttpGet("{username}")]

@@ -28,7 +28,7 @@ public class UserRepository : IUserRepository
 
     public async Task<IEnumerable<MemberDTO>> GetMembersAsync()
     {
-        return await _context.Users.ProjectTo<MemberDTO>(_mapper.ConfigurationProvider).ToListAsync();
+        return await _context.Users.ProjectTo<MemberDTO>(_mapper.ConfigurationProvider).ToArrayAsync();
     }
 
     public async Task<AppUser> GetUserByIdAsync(int id)
