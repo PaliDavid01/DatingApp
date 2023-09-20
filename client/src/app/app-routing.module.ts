@@ -8,6 +8,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { authGuard } from './_guards/auth.guard';
 import { TestErrorComponent } from './errors/test-error/test-error.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { perventUnsavedChangesGuard } from './_guards/pervent-unsaved-changes.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,6 +19,7 @@ const routes: Routes = [
     children:[
         {path: 'members', component: MemberListComponent},
         {path: 'members/:username', component: MemberDetailComponent},
+        {path: 'member/edit', component: MemberEditComponent, canDeactivate: [perventUnsavedChangesGuard]},
         {path: 'lists', component: ListsComponent},
         {path: 'messages', component: MessagesComponent},
     ]
